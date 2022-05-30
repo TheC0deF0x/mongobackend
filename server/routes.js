@@ -3,9 +3,9 @@ const router = express.Router();
 
 // Models
 const PQRequest = require("./models/pqrequest.model");
+const BusinessArea = require("./models/businessArea.model");
 
-router.post("/requests", async (req, res) => {
-  console.log("trying to post");
+router.post("/requests", (req, res) => {
   // Validate request
   if (!req.body.Title) {
     res.status(400).send({ message: "Content cannot be empty" });
@@ -34,9 +34,17 @@ router.post("/requests", async (req, res) => {
     });
 });
 
-router.get("/requests", async (req, res) => {
-  const requests = await PQRequest.find();
-  res.send(requests);
+router.get("/requests", (req, res) => {
+  PQRequest.find().then((response) => {
+    res.send(response);
+  });
+});
+
+// Business Areas
+router.get("/BusinessAreas", (req, res) => {
+  BusinessArea.find().then((response) => {
+    res.send(response);
+  });
 });
 
 module.exports = router;

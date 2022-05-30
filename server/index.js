@@ -3,7 +3,7 @@ const bodyParser = require("body-parser");
 const path = require("path");
 const routes = require("./routes");
 
-const mongo = require("./mongo");
+const mongo = require("./mongoose");
 
 const root = "./";
 const port = process.env.PORT || "3000";
@@ -18,4 +18,4 @@ app.use("/api", routes);
 // res.sendFile("dist/angular-cosmosdb/index.html", { root });
 // });
 
-app.listen(port, () => console.log(`API running on localhost:${port}`));
+app.listen(port, () => console.log(`Express is running on localhost:${port}`));

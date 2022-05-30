@@ -13,7 +13,7 @@ const PQRequestSchema = new Schema(
     graduateApplication: String,
     previousBusinessArea: String,
   },
-  { collection: "PQRequests" }
+  { collection: "PQRequests", timestamps: true }
 );
 
 const PQRequest = mongoose.model("PQRequest", PQRequestSchema);
